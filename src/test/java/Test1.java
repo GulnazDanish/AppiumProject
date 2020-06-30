@@ -15,7 +15,11 @@ public class Test1 {
 		DesiredCapabilities dc = new DesiredCapabilities();
 		dc.setCapability(MobileCapabilityType.DEVICE_NAME, "Demo");
 		dc.setCapability(MobileCapabilityType.APP, f.getAbsolutePath());
-		AndroidDriver<AndroidElement> ad = new AndroidDriver<AndroidElement>(new URL("http://127.0.0.1:4723/wd/hub"),dc);
+		AndroidDriver<AndroidElement> driver = new AndroidDriver<AndroidElement>(new URL("http://127.0.0.1:4723/wd/hub"),dc);
+		
+		driver.findElementByXPath("//android.widget.TextView[@text='Preference']").click();
+		driver.findElementById("android:id/checkbox").click();
+		driver.findElementById("android:id/title").click();
 	}
 
 }
